@@ -1,5 +1,5 @@
 # PythonExercises
-Python programs which I built inspired by different courses
+Python programs I built inspired by different courses
 
 The projects under this repository come mainly from the excellent Udemy course: 100 Days of Code: The Complete Python Pro Bootcamp by Angela Yu.
 These programs were inspired by the course but i created my own versions of them and will keep adding as i progress :)
