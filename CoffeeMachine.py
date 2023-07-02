@@ -145,9 +145,9 @@ def makeDrink(resourcesToMakeDrink, resources):
     return res
 
 
-resources = menu.resources
+resources = CoffeeMachineMenu.resources
 resourcesCopy = resources.copy()
-menu = menu.MENU
+menu = CoffeeMachineMenu.MENU
 
 espresso = menu.get('espresso')
 espressoIngredients = espresso.get('ingredients')
