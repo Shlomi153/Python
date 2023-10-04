@@ -7,33 +7,34 @@
 #4) Give the user the final score out of total questions he was asked
 #Use a separate class for 2 - 4
 
+#The files related to this one are:
+#1) Question.py
+#2) QuizBrain
+#3) TriviaData
+
 from TriviaData import triviaData
 from Question import Question
 from QuizBrain import QuizBrain
 
-if __name__ == '__main__':
+def TriviaMain():
     questions = []
 
     for question in triviaData:
         questionText = question['question']
         questionAnswer = question['correct_answer']
-        newQuestion = Question(questionText=questionText, correctAnswer=questionAnswer)
-        questions.append(newQuestion)
+        questionObject = Question(questionText=questionText, correctAnswer=questionAnswer)
+        questions.append(questionObject)
 
-    """
-    for question in questions:
-        print(question.question + ': ' + question.correctAnswer)
-    """
+    continuePlaying = 'Yes'
 
-    questionList = QuizBrain(questionsList=questions)
+    questionsList = QuizBrain(questions)
 
-    continuePlaying = 'yes'
+    print('Welcome to the lovely Quiz of the day!\nLet us begin:\n')
 
-    while(continuePlaying == 'yes'):
-        QuizBrain.NextQuestion(questionList)
-        continuePlaying = input('Do you want to move to the next question?')
+    while (questionsList.StillHasQuestions() == True):
+        questionsList.NextQuestion()
 
-    finalResult = QuizBrain.FinalScore(questionList)
+    questionsList.FinalResult()
 
 
 
