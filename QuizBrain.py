@@ -1,22 +1,25 @@
 class QuizBrain:
     def __init__(self, questionsList):
         self.questionsList = questionsList
-        self.questionCounter = 0
-        self.userScore = 0
+        self.score = 0
+        self.counter = 0
 
     def NextQuestion(self):
-        self.questionCounter += 1
-        currentQuestion = self.questionsList[self.questionCounter]
-        userAnswer = input(f'Q{self.questionCounter}: {currentQuestion.questionText} (True/False)?')
-        self.IsCorrect(userAnswer, currentQuestion.correctAnswer)
+        userAnswer = input(f'Q{self.counter + 1}: {self.questionsList[self.counter].question} True/False?.\n').lower()
+        correctAnswer = self.questionsList[self.counter].correctAnswer
+        self.counter += 1
+        self.IsCorrect(userAnswer, correctAnswer)
+
+    def StillHasQuestions(self):
+        return self.counter < len(self.questionsList)
 
     def IsCorrect(self, userAnswer, correctAnswer):
-        if(userAnswer == correctAnswer):
+        if(userAnswer.lower() == correctAnswer.lower()):
             print('Correct!')
-            self.userScore += 1
+            self.score += 1
         else:
-            print('Incorrect!')
-        print(f'The correct answer was: {correctAnswer}.')
+            print('Wrong answer!')
+        print(f'The correct answer was: {correctAnswer}.\n')
 
-    def FinalScore(self):
-        return print(f'Your final score was: {self.userScore} out of {self.questionCounter} questions.')
+    def FinalResult(self):
+        print(f'Your final score is: {self.score} out of {self.counter} questions.\n')
