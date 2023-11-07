@@ -1,9 +1,0 @@
-The following files belong to this program:
-1) Main
-2) Question
-3) QuizBrain
-4) TriviaData
-5) TriviaMain
-
-The program queries the user a number of questions, checks the users answer each time and compares with the correct one.
-Finally returns the result including how many of the questions were right.
