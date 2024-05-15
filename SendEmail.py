@@ -1,5 +1,5 @@
-#Created by Shlomi Kiko
-#Goal: Simple script to automate moving files with Python
+m#Created by Shlomi Kiko
+#Goal: Simple script to send mails with Python
 #Linkedin: https://www.linkedin.com/in/shlomikiko/
 
 def SendMail():
