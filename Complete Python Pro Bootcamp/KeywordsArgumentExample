@@ -1,0 +1,16 @@
+#Created by Shlomi Kiko
+#Goal: Basic KeywordArguments example as a parameter.
+#Linkedin: https://www.linkedin.com/in/shlomikiko/
+
+def KeywordArgumentsExample(**kwargs):
+    #Can also access the value in the dictionary using kwargs['multiply'] for example, 
+    #downside is if there is no value an error will pop up where in comparison with the get method you will receive None in return
+    number = kwargs.get('number')
+    multiply = kwargs.get('multiply')
+
+    result = number * multiply
+
+    print(f'{number} * {multiply} = {result}')
+
+
+KeywordArgumentsExample(number=3, multiply=5)
