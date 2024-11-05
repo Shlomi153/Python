@@ -1,3 +1,7 @@
+#Created by Shlomi Kiko
+#Goal: This program shows how to build a basic window to start with.
+#Linkedin: https://www.linkedin.com/in/shlomikiko/
+
 #Import the Tkinter library
 import tkinter as tk
 
