@@ -1,0 +1,135 @@
+#Created by Shlomi Kiko
+#Goal: This program shows how to build a basic GUI with Tkinter
+#Linkedin: https://www.linkedin.com/in/shlomikiko/
+
+#Import the tkinter library
+import tkinter as tk
+
+def ButtonClicked():
+    print('I got clicked!')
+    #Use the config method to update text
+    button.config(text='You got clicked mate!')
+    myLabel.config(text='New Label got clicked!')
+    #Use the get method to retrieve the inputted value in the entryField
+    myLabel.config(text=entryField.get())
+   
+def SpinBox():
+    #Prints the value of the spinbox when moved 
+    print(spinbox.get())
+
+def Scale(value):
+    #Prints the value of the scale when moved
+    print(value) 
+    #print(scale.get())
+
+def CheckedBox():
+    #Prints the value of the checkedState of the CheckedBox when clicked
+    print(checkedState.get())
+
+def RadioButton():
+    #Prints the value of the radioState of the RadioButtons when clicked
+    print(radioState.get())
+
+def Listbox(value):
+    #Prints the value of the selected item in the ListBox
+    print(listbox.get(listbox.curselection()))
+
+###########################################################################
+ #Main   
+###########################################################################
+
+#Create the window
+window = tk.Tk()
+
+#Ensure a fixed window size
+window.minsize(height=600, width=500)
+
+#Create a title for the window
+window.title('My Tkinter Window!')
+
+#Create a label
+myLabel = tk.Label(text='Label here', font=('Comic sans ms', 30))
+#Pack it to ensure it appears on the window
+myLabel.pack()
+#If you'd want to allign it to the left for example
+#myLabel.pack(side='left')
+#Say we wanna change the text in the label
+myLabel.config(text='New Label here!', font=('Comic sans ms', 32))
+
+#Create a Button
+button = tk.Button(text='Click me', command=ButtonClicked)
+#Pack the Button for it to appear
+button.pack()
+
+#Entry field
+entryField = tk.Entry(width=25)
+#Pack the entry field for it to appear
+entryField.pack()
+
+#Create a textbox
+textbox = tk.Text(height=5, width=20)
+#Places a cursor in the textbox
+textbox.focus()
+#Add some text to start off with
+textbox.insert(tk.END, 'This is a test line')
+#Add pack function to display it in the window
+textbox.pack()
+#Print the value from the textbox, 1 means first line and 0 refers to the first character
+print(textbox.get('1.0', tk.END))
+
+#Define a spinbox, saves the value
+spinbox = tk.Spinbox(from_=0, to=10, width=5, command=SpinBox)
+#Pack the spinbox
+spinbox.pack()
+
+#Define a scale, passed the value
+scale = tk.Scale(from_=0, to=10, command=Scale)
+#Pack the scale
+scale.pack()
+
+#Define a Checkbox, saves the value
+#First we define an IntVar object to be able to store the integer value(in this case 0 or 1)
+checkedState = tk.IntVar()
+#Now we build the checkbox variable to link the function and checkedState variable for the switch, value is being saved
+checkedBox = tk.Checkbutton(text='Switch', variable=checkedState, command=CheckedBox)
+#Pack the checkbox
+checkedBox.pack()
+
+#Create RadioButtons
+#Create an IntVar object to store the integer value with the selection
+radioState = tk.IntVar()
+#Create radioButton 1
+radioButton1 = tk.Radiobutton(text='Option1', value=1, variable=radioState, command=RadioButton)
+#Pack radioButton1
+radioButton1.pack()
+#Create radioButton2
+radioButton2 = tk.Radiobutton(text='Option2', value=2, variable=radioState, command=RadioButton)
+#Pack radioButton2
+radioButton2.pack()
+#Create radioButton3
+radioButton3 = tk.Radiobutton(text='Option3', value=3, variable=radioState, command=RadioButton)
+#Pack radioButton3
+radioButton3.pack()
+#Create radioButton4
+radioButton4 = tk.Radiobutton(text='Option4', value=4, variable=radioState, command=RadioButton)
+#Pack radioButton4
+radioButton4.pack()
+
+#Create a listbox
+#Start of by creating a list
+cars = ['Toyota', 'Mitsubishi', 'Porshe', 'BMW', 'Audi']
+#Create a listbox variable and define the height(number of items)
+listbox = tk.Listbox(height=5)
+#Loop over the listbox to insert all the cars from the list
+for car in cars:
+    listbox.insert(cars.index(car), car)
+#Bind the listbox with the defined function to print values(text must match exactly in the first part of bind)
+listbox.bind('<<ListboxSelect>>', Listbox)
+#Pack listbox
+listbox.pack()
+
+
+#End############################################################
+#Have an infinite loop for the window to ensure it doesn't close
+window.mainloop()
+#End############################################################
