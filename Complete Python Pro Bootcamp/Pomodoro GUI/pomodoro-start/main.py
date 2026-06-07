@@ -2,6 +2,14 @@
 #Topic: This program helps manage work and break times, 4 iterations of 20 minute work, 5 minute break, finishing with a longer 25 minute break
 #Linkedin: https://www.linkedin.com/in/shlomikiko/
 
+#Pomodoro App:
+#1) Decide on the task to work on
+#2) Set the timer to 25 minutes
+#3) Work on the task until the timer rings
+#4) Take a short 5 minutes break
+#5) Repeat these steps 4 times
+#6) Take a 15-30 minute break
+
 import tkinter as tk;
 import math;
 # ---------------------------- CONSTANTS ------------------------------- #
